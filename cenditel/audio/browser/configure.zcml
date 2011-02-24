@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="cenditel.audio">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      for="cenditel.audio.interfaces.audio.Iaudio"
+      class=".audioview.audioView"
+      name="audio_view"
+      template="audioview.pt"
+      permission="zope.Public"
+      />
+  
+<!--layer="cenditel.multimedia.interfaces.audio.IaudioSpecific"
+allowed_interface=".audioview.IaudioView"
+allowed_attributes="portal_state"-->
+</configure>

@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:fss="http://namespaces.ingeniweb.com/filesystemstorage"
+    i18n_domain="cenditel.audio">
+  
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="plone.app.registry"/>
+  <include package=".browser" />
+  <include package=".content" />
+  <include file="profiles.zcml" />
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <include package="iw.fss" file="atct.zcml" />
+
+  <!--<subscriber
+        for="cenditel.audio.interfaces.Iaudio
+	zope.app.container.interfaces.IObjectRemovedEvent"
+        handler="cenditel.transcodedeamon.eventdelete.type_custom_delete"
+        />-->
+
+</configure>

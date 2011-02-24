@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<object name="audio"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="cenditel.audio">
+
+  <property name="title" i18n:translate="">Audio file</property>
+  <property name="description" i18n:translate="">It's audio Streming using HTML5</property>
+  <property name="content_meta_type">audio</property>
+  <property name="content_icon">audio.png</property>
+  <property name="product">cenditel.audio</property>
+  <property name="factory">addaudio</property>
+  <property name="immediate_view">audio_view</property>
+  <property name="global_allow">True</property>
+  <property name="filter_content_types">False</property>
+  <property name="allow_discussion">True</property>
+  <property name="default_view">audio_view</property>
+  <property name="view_methods">
+    <element value="base_view" />
+    <element value="@@audio_view" />
+  </property>
+  <alias from="(Default)" to="@@audio_view" />
+  <alias from="edit" to="atct_edit" />
+  <alias from="sharing" to="@@sharing" />
+  <alias from="view" to="@@audio_view" />
+  <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}/view" visible="True">
+    <permission value="View" />
+  </action>
+  <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/edit" visible="True">
+    <permission value="Modify portal content" />
+  </action>
+</object>

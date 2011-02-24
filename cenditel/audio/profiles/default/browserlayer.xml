@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>  
+    <layer name="cenditel.audio"
+         interface="cenditel.audio.interfaces.audio.IaudioSpecific" />
+</layers>

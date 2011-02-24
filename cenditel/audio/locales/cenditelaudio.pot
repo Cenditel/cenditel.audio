@@ -1,0 +1,98 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-02-22 14:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: cenditel.audio\n"
+
+#: ../content/audio.py:26
+msgid "Audio"
+msgstr ""
+
+#: ../profiles/default/types/audio.xml
+msgid "Audio file"
+msgstr ""
+
+#: ../profiles/default/types/audio.xml
+msgid "It's audio Streming using HTML5"
+msgstr ""
+
+#: ../content/audio.py:27
+msgid "The Audio file to be uploaded"
+msgstr ""
+
+#: ../browser/audioview.py:104
+msgid "The file is not ready yet, please contact site administration"
+msgstr ""
+
+#: ../validators.py:112
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr ""
+
+#. Default: "File has to be of one of the following content-types '${types}'"
+#: ../validators.py:165
+msgid "contenttype_error"
+msgstr ""
+
+#. Default: "File has to be of one of the following content-types '${types}', we sorry but in this moment the transcode is out of service"
+#: ../validators.py:216
+msgid "contenttype_error_transcode_service"
+msgstr ""
+
+#. Default: "In this moment the file is not available for Streaming"
+#: ../browser/audioview.pt:164
+msgid "label_ErrorToGetTheFile"
+msgstr ""
+
+#. Default: "In this moment the file is on processing of transcodification"
+#: ../browser/audioview.pt:155
+msgid "label_FileIsWaiting"
+msgstr ""
+
+#. Default: "Name of the file in the HardDrive"
+#: ../browser/audioview.pt:144
+msgid "label_NameInHardDrive"
+msgstr ""
+
+#. Default: "Name of the Audio:"
+#: ../browser/audioview.pt:134
+msgid "label_NameOfFile"
+msgstr ""
+
+#. Default: "We sorry, your browser do not give support to html5, please download"
+#: ../browser/audioview.pt:101
+msgid "label_NoHTML5"
+msgstr ""
+
+#. Default: "Sorry for the inconvenience..."
+#: ../browser/audioview.pt:165
+msgid "label_SorryError"
+msgstr ""
+
+#. Default: "Sorry for the inconvenience..."
+#: ../browser/audioview.pt:156
+msgid "label_SorryWaiting"
+msgstr ""
+
+#. Default: "The url to file"
+#: ../browser/audioview.pt:93
+msgid "label_TheURlToFile"
+msgstr ""
+
+#. Default: "Size"
+#: ../browser/audioview.pt:139
+msgid "label_size"
+msgstr ""
+

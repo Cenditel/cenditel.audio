@@ -68,6 +68,7 @@ setup(name='Cenditel Foundation Audio Format Specification',
           'setuptools',
           # -*- Extra requirements: -*-
           'cenditel.transcodedeamon',
+          'cenditel.multimediaplayertheme',
           'collective.javascript.jqueryui==1.8.4'
       ],
       tests_require=tests_require,

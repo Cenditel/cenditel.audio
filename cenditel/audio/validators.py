@@ -234,7 +234,6 @@ class TranscodeValidator:
                     except: # wasn't able to parse mimetype
                         try:
                             file_type=str(type)
-                            #pdb.set_trace()
                         except:
                             file_type = None
                         if file_type in valid_types:

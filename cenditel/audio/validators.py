@@ -144,6 +144,11 @@ except ImportError: # BBB Plone 3
 
 class ContentTypeValidator:
     """Validates a file to be of one of the given content-types
+
+    This code was taken from Raptus AG <dev at raptus com> in
+    http://pypi.python.org/pypi/Products.ContentTypeValidator/2.0b3
+    Only was implement the use of plone.app.registry to indicate which content types
+    are allowed using a control panel
     """
     if USE_BBB_VALIDATORS: 
         __implements__ = (IValidator,)

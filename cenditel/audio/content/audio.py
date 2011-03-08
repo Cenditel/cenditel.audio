@@ -21,7 +21,6 @@ audioSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 atapi.FileField('audio',
       required=True,
       searchable=True,
-      #storage=FileSystemStorage(),
       storage=FileSystemStorage(),
       widget=atapi.FileWidget(label=_(u"Audio"),
                                    description=_(u"The Audio file to be uploaded"))

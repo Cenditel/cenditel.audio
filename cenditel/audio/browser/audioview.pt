@@ -56,7 +56,6 @@
 		               NameInHardDrive view/GETNewNameAudio;
 		               MyTitle view/GETMyTitle;
 		               UrlToAudio view/GETAdressOfAudioFromApache;
-		               FolderFile view/GETfolderfile;
 		               Available view/GETStatusOfFile;
 		               NewPath view/URLElement;
 		               FileSize view/GETFileSize;
@@ -99,7 +98,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
           <div class="media-player">
 	
            <audio controls="controls" type="audio/ogg; codecs='vorbis'">
-            <source tal:attributes="src string:$FolderFile" />
+            <source tal:attributes="src string:$UrlToAudio" />
             <span i18n:translate="label_NoHTML5">We sorry, your browser do not give support to html5, please download</span> <a href="http://www.mozilla-europe.org/es/firefox/" target="_new"><tal:comment replace="nothing">firefox</tal:comment></a>
            </audio>
 	

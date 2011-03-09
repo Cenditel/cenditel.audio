@@ -34,7 +34,7 @@ long_description = (
 
 tests_require = ['zope.testing']
 
-setup(name='Cenditel Foundation Audio Format Specification',
+setup(name='cenditel.audio',
       version=version,
       description="This package provide a aditional content type that provide audio streaming using HTML5",
       long_description=long_description,

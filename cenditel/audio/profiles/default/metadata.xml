@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <metadata>
   <version>0.1</version>
-  <dependencies>
+  <!--<dependencies>
     <dependency>profile-collective.javascript.jqueryui:default</dependency>
     <dependency>profile-cenditel.transcodedeamon:default</dependency>
     <dependency>profile-cenditel.multimediaplayertheme:default</dependency>
-  </dependencies>
+  </dependencies>-->
 </metadata>

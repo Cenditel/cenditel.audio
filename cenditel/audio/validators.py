@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-#from Products.validation.interfaces import ivalidator
-from cenditel.audio import audioMessageFactory as _
-#from Products.CMFPlone import PloneMessageFactory as _
 from Products.validation.config import validation
 try:
     from Products.validation.interfaces.IValidator import IValidator
@@ -10,9 +7,6 @@ except ImportError:
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
     from interfaces.IValidator import IValidator
     del sys, os
-
-ValidatorsList=[]
-
 #MaxSizeValidator Validator Imports
 from Products.ATContentTypes.configuration import zconf
 from Acquisition import aq_base
@@ -23,8 +17,10 @@ from ZPublisher.HTTPRequest import FileUpload
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
+
 #
 from cenditel.transcodedeamon.interfaces import ITranscodeSetings
+from cenditel.audio import audioMessageFactory as _
 
 #
 from zope.i18n import translate
@@ -34,6 +30,9 @@ from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
+
+ValidatorsList=[]
+
 
 class EvilValidator:
     __implements__ = IValidator
@@ -168,7 +167,7 @@ class ContentTypeAudioValidator:
         #import pdb; pdb.set_trace()
         content_types=tuple(valid_content_types.split())
         error = translate(_('contenttype_error', 
-                            default=u"File has to be of one of the following content-types '${types}'", 
+                            default=u"File has to be of one of the following content-types '${types}'.", 
                             mapping={'types': ', '.join(content_types)}), context=kw['instance'].REQUEST)
         if value and not value == 'DELETE_FILE':
             try:
@@ -191,7 +190,6 @@ class ContentTypeAudioValidator:
                 return error
         return 1
 
-#ValidatorsList.append(ContentTypeValidator('ValidContentType', title='', description=''))
 
 class TranscodeAudioValidator:
     """
@@ -213,7 +211,7 @@ class TranscodeAudioValidator:
         transcode_status = settings.transcode_switch
         valid_types=('audio/ogg', 'audio/x-theora+ogg', 'application/ogg')
         error = translate(_('contenttype_error_transcode_service', 
-                            default=_(u"We sorry but in this moment, the transcode is out of service your file must to be one of the following content-types '${types}'"), 
+                            default=_(u"We sorry but in this moment, the transcode is out of service. To load your file must to be one of the following content-types '${types}'."), 
                             mapping={'types': ', '.join(valid_types)}), context=kw['instance'].REQUEST)
 
         if value and not value == 'DELETE_FILE':

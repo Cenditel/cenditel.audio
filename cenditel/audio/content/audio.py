@@ -8,11 +8,14 @@ from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.validation import V_REQUIRED
 from Products.validation.config import validation
+
 # -*- Message Factory Imported Here -*-
 from cenditel.audio import audioMessageFactory as _
+
 from cenditel.audio.interfaces import Iaudio
 from cenditel.audio.config import PROJECTNAME
 from cenditel.audio.validators import ContentTypeAudioValidator, TranscodeAudioValidator
+
 # -*- FileSystemStorage Import here -*-
 from iw.fss.FileSystemStorage import FileSystemStorage
 
@@ -20,18 +23,22 @@ audioSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
 
-atapi.FileField('audio',
-      required=True,
-      searchable=True,
-      storage=FileSystemStorage(),
-      validators=(('checkFileMaxSize',V_REQUIRED),
-                    (ContentTypeAudioValidator()),
-                    (TranscodeAudioValidator()),
-                    #('MyTranscodeValidator'),
-                    ),
-      widget=atapi.FileWidget(label=_(u"Audio"),
-                              description=_(u"The Audio file to be uploaded"))
-      ),
+    atapi.FileField(
+        name='audio',
+        widget=atapi.FileWidget(
+            label=_(u"Audio"),
+            description=_(u"The Audio file to be uploaded")
+        ),
+        required=True,
+        searchable=True,
+        storage=FileSystemStorage(),
+        validators=(
+            ('checkFileMaxSize',V_REQUIRED),
+            (ContentTypeAudioValidator()),
+            (TranscodeAudioValidator()),
+        ),
+    
+    ),
 
 ))
 

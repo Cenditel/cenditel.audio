@@ -11,7 +11,7 @@ except ImportError:
     from interfaces.IValidator import IValidator
     del sys, os
 
-listaValidadores=[]
+ValidatorsList=[]
 
 #MaxSizeValidator Validator Imports
 from Products.ATContentTypes.configuration import zconf
@@ -52,7 +52,7 @@ class EvilValidator:
         import pdb; pdb.set_trace()
         return('Moahahahaha - you FAIL!')
 
-listaValidadores.append(EvilValidator('evilness', title='', description=''))
+ValidatorsList.append(EvilValidator('evilness', title='', description=''))
 
 class FileSizeValidator:
     """Tests if an upload, file or something supporting len() is smaller than a
@@ -119,7 +119,7 @@ class FileSizeValidator:
         else:
             return True
 
-listaValidadores.append(FileSizeValidator('checkFileMaxSize',
+ValidatorsList.append(FileSizeValidator('checkFileMaxSize',
                                      maxsize=zconf.ATFile.max_file_size))
 
 class NameValidator:
@@ -142,7 +142,7 @@ try: # Plone 4 and higher
 except ImportError: # BBB Plone 3
     USE_BBB_VALIDATORS = True
 
-class ContentTypeValidator:
+class ContentTypeAudioValidator:
     """Validates a file to be of one of the given content-types
 
     This code was taken from Raptus AG <dev at raptus com> in
@@ -191,9 +191,9 @@ class ContentTypeValidator:
                 return error
         return 1
 
-#listaValidadores.append(ContentTypeValidator('ValidContentType', title='', description=''))
+#ValidatorsList.append(ContentTypeValidator('ValidContentType', title='', description=''))
 
-class TranscodeValidator:
+class TranscodeAudioValidator:
     """
     Validates if a user could upload a file if the transcode is not started
     """
@@ -211,15 +211,9 @@ class TranscodeValidator:
         registry = getUtility(IRegistry)
         settings = registry.forInterface(ITranscodeSetings)
         transcode_status = settings.transcode_switch
-        #pdb.set_trace()
-        #type=kw['field'].getContentType(kw['instance'])
-        #my_mime_types = getToolByName(kw['instance'], 'mimetypes_registry')
-        #typess=my_mime_types.lookupExtension(value.filename.lower())
-        #file_type = typess.my_mime_metypes[0]
-        #pdb.set_trace()
         valid_types=('audio/ogg', 'audio/x-theora+ogg', 'application/ogg')
         error = translate(_('contenttype_error_transcode_service', 
-                            default=u"File has to be of one of the following content-types '${types}', we sorry but in this moment the transcode is out of service", 
+                            default=_(u"We sorry but in this moment, the transcode is out of service your file must to be one of the following content-types '${types}'"), 
                             mapping={'types': ', '.join(valid_types)}), context=kw['instance'].REQUEST)
 
         if value and not value == 'DELETE_FILE':
@@ -251,7 +245,7 @@ class TranscodeValidator:
                 return error
         return 1
             
-listaValidadores.append(TranscodeValidator('MyTranscodeValidator', title='', description=''))
+ValidatorsList.append(TranscodeAudioValidator('MyTranscodeValidator', title='', description=''))
 
-for validador in listaValidadores:
-    validation.register(validador)
+for validator in ValidatorsList:
+    validation.register(validator)

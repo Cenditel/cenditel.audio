@@ -7,7 +7,7 @@
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
-      title="Cenditel.Audio Content Type"
+      title="Cenditel Foundation Audio Format Specification"
       directory="profiles/default"
       description="This package provide a aditional content type that provide audio streaming using HTML5"
       provides="Products.GenericSetup.interfaces.EXTENSION"

@@ -18,4 +18,12 @@
 <!--layer="cenditel.multimedia.interfaces.audio.IaudioSpecific"
 allowed_interface=".audioview.IaudioView"
 allowed_attributes="portal_state"-->
+
+
+  <browser:resourceDirectory
+      name="cenditel.audio.images"
+      directory="images"
+      layer="cenditel.audio.interfaces.IaudioSpecific"
+      />
+
 </configure>

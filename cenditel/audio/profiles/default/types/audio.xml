@@ -6,7 +6,7 @@
   <property name="title" i18n:translate="">Audio file</property>
   <property name="description" i18n:translate="">It's audio Streming using HTML5</property>
   <property name="content_meta_type">audio</property>
-  <property name="content_icon">audio.png</property>
+  <property name="content_icon">++resource++cenditel.audio.images/audio.png</property>
   <property name="product">cenditel.audio</property>
   <property name="factory">addaudio</property>
   <property name="immediate_view">audio_view</property>

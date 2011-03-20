@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cenditel.audio\n"
-"POT-Creation-Date: 2011-03-18 16:40+0000\n"
-"PO-Revision-Date: 2011-03-18 11:35-0400\n"
+"POT-Creation-Date: 2011-03-20 03:51+0000\n"
+"PO-Revision-Date: 2011-03-19 23:29-0400\n"
 "Last-Translator: Victor Teran <elalcon89@hotmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,16 +41,16 @@ msgid "The file is not ready yet, please contact site administration"
 msgstr "El archivo aún no esta listo, contacte a la administración del sitio"
 
 #: ../validators.py:111
-msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
-msgstr "¡Fallo validación! ($name: data subida es demasiado grande: su tamaño actual es ${size}MB (máximo permitido ${max}MB)"
+msgid "Validation failed(Uploaded data is too large: ${size}MB (max ${max}MB))"
+msgstr "¡Fallo validación! (data subida es demasiado grande: su tamaño actual es ${size}MB (máximo permitido ${max}MB ))"
 
 #. Default: "File has to be of one of the following content-types '${types}'."
-#: ../validators.py:169
+#: ../validators.py:168
 msgid "contenttype_error"
 msgstr "El archivo tiene que ser uno de los siguientes formatos de audio '${types}'."
 
 #. Default: "We sorry but in this moment, the transcode is out of service. To load your file must to be one of the following content-types '${types}'."
-#: ../validators.py:213
+#: ../validators.py:212
 msgid "contenttype_error_transcode_service"
 msgstr "Lo sentimos pero en este momento el servicio de conversión de formato no esta disponible. Para cargar su archivo tiene que ser uno de los siguientes formatos de audio '${types}'."
 

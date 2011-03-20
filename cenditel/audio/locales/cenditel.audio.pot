@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-02-22 14:52+0000\n"
+"POT-Creation-Date: 2011-03-20 03:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,16 +42,16 @@ msgid "The file is not ready yet, please contact site administration"
 msgstr ""
 
 #: ../validators.py:111
-msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgid "Validation failed(Uploaded data is too large: ${size}MB (max ${max}MB))"
 msgstr ""
 
 #. Default: "File has to be of one of the following content-types '${types}'."
-#: ../validators.py:169
+#: ../validators.py:168
 msgid "contenttype_error"
 msgstr ""
 
 #. Default: "We sorry but in this moment, the transcode is out of service. To load your file must to be one of the following content-types '${types}'."
-#: ../validators.py:213
+#: ../validators.py:212
 msgid "contenttype_error_transcode_service"
 msgstr ""
 

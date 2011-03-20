@@ -108,9 +108,8 @@ class FileSizeValidator:
         sizeMB = (size / (1024 * 1024))
 
         if sizeMB > maxsize:
-            msg = _("Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)",
+            msg = _("Validation failed(Uploaded data is too large: ${size}MB (max ${max}MB))",
                     mapping = {
-                        'name' : safe_unicode(self.name),
                         'size' : safe_unicode("%.3f" % sizeMB),
                         'max' : safe_unicode("%.3f" % maxsize)
                         })

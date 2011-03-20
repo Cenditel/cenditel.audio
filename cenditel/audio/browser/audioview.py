@@ -91,10 +91,8 @@ class audioView(BrowserView):
 	self.MyTitleWhitOutSpace = MFNI.DeleteSpaceinNameOfFolderFile(self.MyTitleWhitOutSpace)
 	if self.extension=="ogg" or self.extension=="OGG":
 	    self.folderfileOGG=self.PathOfFile+'/' + quote(self.filenamesaved)
-	    import pdb; pdb.set_trace()
 	    self.prefiletranscoded=self.STORAGE+self.PathOfFile+'/'+self.filenamesaved
 	    if path.isfile(self.prefiletranscoded)==True:
-		import pdb; pdb.set_trace()
 		self.StatusOfFile=ServiceList.available(idaudio,self.prefiletranscoded)
 		if self.StatusOfFile == False:
 		    ServiceList.AddReadyElement(idaudio,self.prefiletranscoded)

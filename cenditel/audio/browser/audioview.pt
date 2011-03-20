@@ -58,7 +58,6 @@
 		               UrlToAudio view/GETAdressOfAudioFromApache;
 		               Available view/GETStatusOfFile;
 		               NewPath view/URLElement;
-		               FileSize view/GETFileSize;
 		               Error view/ErrorSituation">
 
 <!--##widget del titulo de la template parte superior-->
@@ -138,7 +137,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
         <span class="discreet visualNoPrint">
         &mdash;
             <span i18n:translate="label_size">Size</span>:
-             <span tal:content="string:$FileSize">
+             <span tal:define="FileSize view/GETFileSize" tal:content="string:$FileSize">
                 <tal:comment replace="nothing">File size</tal:comment>
              </span>
             </span>

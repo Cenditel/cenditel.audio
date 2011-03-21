@@ -58,7 +58,9 @@
 		               UrlToAudio view/GETAdressOfAudioFromApache;
 		               Available view/GETStatusOfFile;
 		               NewPath view/URLElement;
-		               Error view/ErrorSituation">
+		               Error view/ErrorSituation;
+			       FileSize view/GETFileSize;
+			       TrueFile view/TrueFile">
 
 <!--##widget del titulo de la template parte superior-->
 	   <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -86,10 +88,10 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 <br/><br/>
 <!--##widget de Audio de la template en caso de available ser verdadero-->
 
-       <span tal:condition= "python: Available == 1 and Error== 0">
+       <span tal:condition= "python: Available == 1 and TrueFile== 1">
     
         <div>
-         <br/><br/>
+         <br /><br />
          <span i18n:translate="label_TheURlToFile">The url to file</span> 
           <a tal:attributes="href string:$UrlToAudio; target string:_new"> <tal:comment replace="nothing">La URL</tal:comment></a><br/>
           <hr /> <!-- PILAS -->
@@ -108,7 +110,9 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 	    <span class="button-text"><tal:comment replace="nothing">play / pause</tal:comment></span>
            </a>
           		
-	   <span class="current-time player-display"><tal:comment replace="nothing">00:00</tal:comment></span>
+	   <span class="current-time player-display">
+	    <tal:comment replace="nothing">00:00</tal:comment>
+	   </span>
 	    <div class="timeline-slider">
 	     <span class="handle-label"><tal:comment replace="nothing">play position</tal:comment></span>
 	     <div class="progressbar"></div>
@@ -123,7 +127,9 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 	     <span class="button-text"><tal:comment replace="nothing">mute / unmute</tal:comment></span>
 	    </a>
 				
-	    <div class="volume-slider"><span class="handle-label"><tal:comment replace="nothing">volume control</tal:comment></span></div>
+	    <div class="volume-slider">
+		  <span class="handle-label"><tal:comment replace="nothing">volume control</tal:comment></span>
+	    </div>
 
 	  </div>
 
@@ -132,12 +138,14 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
       <hr />
       
 	<span i18n:translate="label_NameOfFile">Name of the Audio:</span>
-	<span tal:content="string:$MyTitle"><tal:comment replace="nothing">it is the Name of the Audio</tal:comment></span>
+	<span tal:content="string:$MyTitle">
+	    <tal:comment replace="nothing">it is the Name of the Audio</tal:comment>
+	</span>
 
         <span class="discreet visualNoPrint">
         &mdash;
             <span i18n:translate="label_size">Size</span>:
-             <span tal:define="FileSize view/GETFileSize" tal:content="string:$FileSize">
+             <span tal:content="string:$FileSize">
                 <tal:comment replace="nothing">File size</tal:comment>
              </span>
             </span>
@@ -159,7 +167,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
      <!-- La variable retornada por el Available   <span tal:replace="string:${Available}"></span>-->
 <!--#########################################################################-->
 
-<div tal:condition="python:(Available == 0 or Available==1) and Error == 1">
+<div tal:condition="python:(Available == 0 or Available==1) and TrueFile==0">
             <font color="#777777" size="1" face="cursive"><br/>
             	<span i18n:translate="label_ErrorToGetTheFile">In this moment the file is not available for Streaming</span><br/>
             	<span i18n:translate="label_SorryError">Sorry for the inconvenience...</span>

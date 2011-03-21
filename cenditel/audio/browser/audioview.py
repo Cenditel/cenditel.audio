@@ -130,6 +130,11 @@ class audioView(BrowserView):
 	else:
 	    return True
 
+    def TrueFile(self):
+	if path.isfile(self.newfiletranscoded)==False:
+	    return False
+	else:
+	    return True
 
     def GETFileSize(self):
 	if self.extension=='ogg':

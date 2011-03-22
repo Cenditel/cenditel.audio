@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-03-20 03:51+0000\n"
+"POT-Creation-Date: 2011-03-21 19:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,8 +25,18 @@ msgstr ""
 msgid "Audio file"
 msgstr ""
 
-#: ../browser/audioview.py:106
+#. Default: "Download Now"
+#: ../browser/audioview.pt:140
+msgid "Download"
+msgstr ""
+
+#: ../browser/audioview.py:104
 msgid "File not found "
+msgstr ""
+
+#. Default: "Mozilla Firefox"
+#: ../browser/audioview.pt:102
+msgid "Firefox"
 msgstr ""
 
 #: ../profiles/default/types/audio.xml
@@ -37,7 +47,7 @@ msgstr ""
 msgid "The Audio file to be uploaded"
 msgstr ""
 
-#: ../browser/audioview.py:125
+#: ../browser/audioview.py:123
 msgid "The file is not ready yet, please contact site administration"
 msgstr ""
 
@@ -56,23 +66,13 @@ msgid "contenttype_error_transcode_service"
 msgstr ""
 
 #. Default: "In this moment the file is not available for Streaming"
-#: ../browser/audioview.pt:165
+#: ../browser/audioview.pt:167
 msgid "label_ErrorToGetTheFile"
 msgstr ""
 
 #. Default: "In this moment the file is on processing of transcodification"
-#: ../browser/audioview.pt:156
+#: ../browser/audioview.pt:158
 msgid "label_FileIsWaiting"
-msgstr ""
-
-#. Default: "Name of the file in the HardDrive"
-#: ../browser/audioview.pt:145
-msgid "label_NameInHardDrive"
-msgstr ""
-
-#. Default: "Name of the Audio:"
-#: ../browser/audioview.pt:135
-msgid "label_NameOfFile"
 msgstr ""
 
 #. Default: "We sorry, your browser do not give support to html5, please download"
@@ -81,22 +81,17 @@ msgid "label_NoHTML5"
 msgstr ""
 
 #. Default: "Sorry for the inconvenience..."
-#: ../browser/audioview.pt:166
+#: ../browser/audioview.pt:168
 msgid "label_SorryError"
 msgstr ""
 
 #. Default: "Sorry for the inconvenience..."
-#: ../browser/audioview.pt:157
+#: ../browser/audioview.pt:159
 msgid "label_SorryWaiting"
 msgstr ""
 
-#. Default: "The url to file"
-#: ../browser/audioview.pt:94
-msgid "label_TheURlToFile"
-msgstr ""
-
 #. Default: "Size"
-#: ../browser/audioview.pt:140
+#: ../browser/audioview.pt:144
 msgid "label_size"
 msgstr ""
 

@@ -17,7 +17,6 @@
 </metal:slot >
 
 <metal:slot fill-slot="javascript_head_slot">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 		<!--<script type="text/javascript" src=++resource++collective.javascript.jqueryui/files/js/jquery-1.4.2.min.js></script>-->
 		<script type="text/javascript" src="++resource++cenditel.multimediaplayertheme.javascripts/jquery.min.js"></script>
 
@@ -54,10 +53,8 @@
       <tal:main-macro metal:define-macro="main"
            tal:define="Playing view/PlayingAudioType;
 		               NameInHardDrive view/GETNewNameAudio;
-		               MyTitle view/GETMyTitle;
-		               UrlToAudio view/GETAdressOfAudioFromApache;
+		               UrlToAudio view/GETAdressOfWebServer;
 		               Available view/GETStatusOfFile;
-		               NewPath view/URLElement;
 		               Error view/ErrorSituation;
 			       FileSize view/GETFileSize;
 			       TrueFile view/TrueFile">
@@ -80,7 +77,7 @@
 <!--########Debug info
 La variable retornada por el Available   <span tal:replace="string:$Available"></span>
 <br/>########-->
-
+<br /><br />
 <!--##widget de descarga de la template-->
 	   <metal:field use-macro="python:here.widget('audio', mode='view')">DownloadLink</metal:field>
            <span class="discreet"></span>
@@ -92,7 +89,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
     
         <div>
          <br /><br />
-         <span i18n:translate="label_TheURlToFile">The url to file</span> 
+         
           <a tal:attributes="href string:$UrlToAudio; target string:_new"> <tal:comment replace="nothing">La URL</tal:comment></a><br/>
           <hr /> <!-- PILAS -->
       
@@ -100,7 +97,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 	
            <audio controls="controls" type="audio/ogg; codecs='vorbis'">
             <source tal:attributes="src string:$UrlToAudio" />
-            <span i18n:translate="label_NoHTML5">We sorry, your browser do not give support to html5, please download</span> <a href="http://www.mozilla-europe.org/es/firefox/" target="_new"><tal:comment replace="nothing">firefox</tal:comment></a>
+            <b i18n:translate="label_NoHTML5">We sorry, your browser do not give support to html5, please download</b> <a href="http://www.firefox.com/" target="_new" i18n:translate="Firefox">Mozilla Firefox</a><span />
            </audio>
 	
      	  <span class="media-label"><tal:comment replace="nothing">audioplayer</tal:comment></span>
@@ -109,7 +106,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 	    <span class="ui-icon"></span>
 	    <span class="button-text"><tal:comment replace="nothing">play / pause</tal:comment></span>
            </a>
-          		
+
 	   <span class="current-time player-display">
 	    <tal:comment replace="nothing">00:00</tal:comment>
 	   </span>
@@ -136,21 +133,17 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 	</div>
 
       <hr />
-      
-	<span i18n:translate="label_NameOfFile">Name of the Audio:</span>
-	<span tal:content="string:$MyTitle">
-	    <tal:comment replace="nothing">it is the Name of the Audio</tal:comment>
-	</span>
 
-        <span class="discreet visualNoPrint">
-        &mdash;
+        
+	<span i18n:translate="Download">Download Now</span>: 
+    <a tal:attributes="href string:$UrlToAudio" tal:content="string:$NameInHardDrive">It is the name</a>
+    <br />
+    <span class="discreet visualNoPrint">
             <span i18n:translate="label_size">Size</span>:
              <span tal:content="string:$FileSize">
                 <tal:comment replace="nothing">File size</tal:comment>
              </span>
-            </span>
-	<span i18n:translate="label_NameInHardDrive">Name of the file in the HardDrive</span>: 
-    <span tal:content="string:$NameInHardDrive"><tal:comment replace="nothing">It is the name</tal:comment></span>
+    </span>
 
   </div>
   
@@ -166,7 +159,6 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 </div>
      <!-- La variable retornada por el Available   <span tal:replace="string:${Available}"></span>-->
 <!--#########################################################################-->
-
 <div tal:condition="python:(Available == 0 or Available==1) and TrueFile==0">
             <font color="#777777" size="1" face="cursive"><br/>
             	<span i18n:translate="label_ErrorToGetTheFile">In this moment the file is not available for Streaming</span><br/>

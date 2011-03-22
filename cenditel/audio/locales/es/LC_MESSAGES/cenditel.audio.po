@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: cenditel.audio\n"
-"POT-Creation-Date: 2011-03-20 03:51+0000\n"
-"PO-Revision-Date: 2011-03-19 23:29-0400\n"
+"POT-Creation-Date: 2011-03-21 19:57+0000\n"
+"PO-Revision-Date: 2011-03-21 15:40-0400\n"
 "Last-Translator: Victor Teran <elalcon89@hotmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +24,19 @@ msgstr "Audio"
 msgid "Audio file"
 msgstr "Archivo de Audio"
 
-#: ../browser/audioview.py:106
+#. Default: "Download Now"
+#: ../browser/audioview.pt:140
+msgid "Download"
+msgstr "Descargue Ahora"
+
+#: ../browser/audioview.py:104
 msgid "File not found "
 msgstr "Archivo no encontrado"
+
+#. Default: "Mozilla Firefox"
+#: ../browser/audioview.pt:102
+msgid "Firefox"
+msgstr "Mozilla Firefox"
 
 #: ../profiles/default/types/audio.xml
 msgid "It's audio Streming using HTML5"
@@ -36,7 +46,7 @@ msgstr "Es un archivo de audio transmitido con Streming y HTML5"
 msgid "The Audio file to be uploaded"
 msgstr "El archivo de audio ha sido cargado"
 
-#: ../browser/audioview.py:125
+#: ../browser/audioview.py:123
 msgid "The file is not ready yet, please contact site administration"
 msgstr "El archivo aún no esta listo, contacte a la administración del sitio"
 
@@ -55,24 +65,14 @@ msgid "contenttype_error_transcode_service"
 msgstr "Lo sentimos pero en este momento el servicio de conversión de formato no esta disponible. Para cargar su archivo tiene que ser uno de los siguientes formatos de audio '${types}'."
 
 #. Default: "In this moment the file is not available for Streaming"
-#: ../browser/audioview.pt:165
+#: ../browser/audioview.pt:167
 msgid "label_ErrorToGetTheFile"
 msgstr "En este momento el archivo no esta disponible para hacer Streaming"
 
 #. Default: "In this moment the file is on processing of transcodification"
-#: ../browser/audioview.pt:156
+#: ../browser/audioview.pt:158
 msgid "label_FileIsWaiting"
 msgstr "En este momento el archivo esta siendo procesado"
-
-#. Default: "Name of the file in the HardDrive"
-#: ../browser/audioview.pt:145
-msgid "label_NameInHardDrive"
-msgstr "Nombre del archivo en el servidor"
-
-#. Default: "Name of the Audio:"
-#: ../browser/audioview.pt:135
-msgid "label_NameOfFile"
-msgstr "Nombre del archivo de Audio:"
 
 #. Default: "We sorry, your browser do not give support to html5, please download"
 #: ../browser/audioview.pt:102
@@ -80,22 +80,17 @@ msgid "label_NoHTML5"
 msgstr "Lo sentimos, su explorador no da soporte a HTML5 por favor descargue "
 
 #. Default: "Sorry for the inconvenience..."
-#: ../browser/audioview.pt:166
+#: ../browser/audioview.pt:168
 msgid "label_SorryError"
 msgstr "Lo sentimos, disculpe las inconveniencias..."
 
 #. Default: "Sorry for the inconvenience..."
-#: ../browser/audioview.pt:157
+#: ../browser/audioview.pt:159
 msgid "label_SorryWaiting"
 msgstr "Lo sentimos, disculpe las inconveniencias..."
 
-#. Default: "The url to file"
-#: ../browser/audioview.pt:94
-msgid "label_TheURlToFile"
-msgstr "La dirección URL al archivo"
-
 #. Default: "Size"
-#: ../browser/audioview.pt:140
+#: ../browser/audioview.pt:144
 msgid "label_size"
-msgstr "Tamaño de Archivo"
+msgstr "Tamaño de Archivo a Descargar"
 

@@ -10,7 +10,6 @@ from urllib import quote
 #############
 from Acquisition import aq_inner
 from zope.component import getMultiAdapter
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 #utility control panel imports
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
@@ -131,10 +130,16 @@ class audioView(BrowserView):
 	    return True
 
     def TrueFile(self):
-	if path.isfile(self.newfiletranscoded)==False:
-	    return False
+	if self.extension=="ogg":
+	    if path.isfile(self.prefiletranscoded):
+		return True
+	    else:
+		return False
 	else:
-	    return True
+	    if path.isfile(self.newfiletranscoded)==False:
+		return False
+	    else:
+		return True
 
     def GETFileSize(self):
 	if self.extension=='ogg':
@@ -156,7 +161,7 @@ class audioView(BrowserView):
 		self.ErrorSituation()
 		return "0 kb"
 
-    def GETAdressOfAudioFromApache(self):
+    def GETAdressOfWebServer(self):
 	"""
 	This method return the server path to the <audio> label
 	"""

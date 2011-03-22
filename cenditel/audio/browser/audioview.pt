@@ -85,7 +85,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 <br/><br/>
 <!--##widget de Audio de la template en caso de available ser verdadero-->
 
-       <span tal:condition= "python: Available == 1 and TrueFile== 1">
+       <span tal:condition= "python: Available == 1 and TrueFile== 1 and Error==0">
     
         <div>
          <br /><br />
@@ -151,7 +151,7 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 
 <!--##widget de Audio de la template en caso de available ser falso-->
 
-<div tal:condition="python:Available == 0 and Error==0">
+<div tal:condition="python:Available == 0 and Error==0 and (TrueFile==0 or TrueFile==1) or (Available == 0 and TrueFile==0 and Error==0)">
             <font color="#777777" size="1" face="cursive"><br/>
             	<span i18n:translate="label_FileIsWaiting">In this moment the file is on processing of transcodification</span><br/>
             	<span i18n:translate="label_SorryWaiting">Sorry for the inconvenience...</span>
@@ -159,7 +159,8 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 </div>
      <!-- La variable retornada por el Available   <span tal:replace="string:${Available}"></span>-->
 <!--#########################################################################-->
-<div tal:condition="python:(Available == 0 or Available==1) and TrueFile==0">
+
+<div tal:condition="python:Available==1 and TrueFile==0 and (Error==1 or Error==0)">
             <font color="#777777" size="1" face="cursive"><br/>
             	<span i18n:translate="label_ErrorToGetTheFile">In this moment the file is not available for Streaming</span><br/>
             	<span i18n:translate="label_SorryError">Sorry for the inconvenience...</span>

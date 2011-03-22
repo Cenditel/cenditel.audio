@@ -13,6 +13,18 @@
 </metal:slot >
 
 <metal:slot fill-slot="style_slot">
+      <style>
+      span#waiting {
+			      text-transform:uppercase;
+			      color:blue;
+			      font-family:sans-serif;
+			}
+			span#ErrorFile{
+			      text-transform:uppercase;
+			      color:red;
+			      font-family:sans-serif;
+			}
+      </style>
       
 </metal:slot >
 
@@ -152,19 +164,21 @@ La variable retornada por el Available   <span tal:replace="string:$Available"><
 <!--##widget de Audio de la template en caso de available ser falso-->
 
 <div tal:condition="python:Available == 0 and Error==0 and (TrueFile==0 or TrueFile==1) or (Available == 0 and TrueFile==0 and Error==0)">
-            <font color="#777777" size="1" face="cursive"><br/>
+            <span id="waiting">
+	        <br/>
             	<span i18n:translate="label_FileIsWaiting">In this moment the file is on processing of transcodification</span><br/>
             	<span i18n:translate="label_SorryWaiting">Sorry for the inconvenience...</span>
-	    </font>
+	    </span>
 </div>
      <!-- La variable retornada por el Available   <span tal:replace="string:${Available}"></span>-->
 <!--#########################################################################-->
 
 <div tal:condition="python:Available==1 and TrueFile==0 and (Error==1 or Error==0)">
-            <font color="#777777" size="1" face="cursive"><br/>
+            <span id="ErrorFile">
+	        <br/>
             	<span i18n:translate="label_ErrorToGetTheFile">In this moment the file is not available for Streaming</span><br/>
             	<span i18n:translate="label_SorryError">Sorry for the inconvenience...</span>
-	    </font>
+	    </span>
 </div>
             <div tal:replace="structure provider:plone.abovecontentbody" />
 

@@ -81,13 +81,12 @@ class audioView(BrowserView):
 	self.STORAGE = self.RemoveSlash(settings.mount_point_fss)
 	self.MyTitle = self.context.Title()
         idaudio=self.context.getId()
-	self.MyTitleWhitOutSpace = MFNI.TitleDeleteSpace(self.MyTitle) 
+	self.MyTitleWhitOutSpace = MFNI.DeleteSpaceinNameOfFolderFile(MFNI.TitleDeleteSpace(self.MyTitle))
 	url = self.context.absolute_url()
 	self.PathOfFile = MFNI.ReturnPathOfFile(url)
 	virtualobject=self.context.getAudio()
 	self.filenamesaved=virtualobject.filename
 	self.extension=MTDI.CheckExtension(self.filenamesaved)
-	self.MyTitleWhitOutSpace = MFNI.DeleteSpaceinNameOfFolderFile(self.MyTitleWhitOutSpace)
 	if self.extension=="ogg" or self.extension=="OGG":
 	    self.folderfileOGG=self.PathOfFile+'/' + quote(self.filenamesaved)
 	    self.prefiletranscoded=self.STORAGE+self.PathOfFile+'/'+self.filenamesaved
@@ -95,6 +94,7 @@ class audioView(BrowserView):
 		self.StatusOfFile=ServiceList.available(idaudio,self.prefiletranscoded)
 		if self.StatusOfFile == False:
 		    ServiceList.AddReadyElement(idaudio,self.prefiletranscoded)
+		    self.StatusOfFile==True
 		    ServiceList.SaveInZODB()
 		    self.AbsoluteServerPath = self.SERVER + self.folderfileOGG
 		else:

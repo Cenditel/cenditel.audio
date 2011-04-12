@@ -25,4 +25,10 @@
         handler="cenditel.transcodedeamon.eventdelete.type_custom_delete"
         />
 
+<subscriber
+        for="cenditel.audio.interfaces.Iaudio
+	zope.app.container.interfaces.IObjectMovedEvent"
+        handler="cenditel.transcodedeamon.eventmoved.type_custom_moved"
+        />
+
 </configure>

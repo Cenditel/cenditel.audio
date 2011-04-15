@@ -31,4 +31,12 @@
         handler="cenditel.transcodedeamon.eventmoved.type_custom_moved"
         />
 
+
+<subscriber
+  zcml:condition="installed zope.lifecycleevent"
+  for="cenditel.audio.interfaces.Iaudio
+       zope.lifecycleevent.IObjectCopiedEvent"
+  handler="cenditel.transcodedeamon.event_custom_copy.Custom_CopyObjet"
+  />
+
 </configure>

@@ -39,4 +39,12 @@
   handler="cenditel.transcodedeamon.event_custom_copy.Custom_CopyObjet"
   />
 
+
+<subscriber
+        for="cenditel.audio.interfaces.Iaudio
+	Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler="cenditel.transcodedeamon.eventedited.ModifiedElement"
+        />
+
+
 </configure>

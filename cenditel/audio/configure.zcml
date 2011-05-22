@@ -19,30 +19,30 @@
   <!-- -*- extra stuff goes here -*- -->
   <include package="iw.fss" file="atct.zcml" />
 
-  <subscriber
+    <subscriber
         for="cenditel.audio.interfaces.Iaudio
 	zope.app.container.interfaces.IObjectRemovedEvent"
         handler="cenditel.transcodedeamon.eventdelete.type_custom_delete"
         />
 
-<subscriber
+    <subscriber
         for="cenditel.audio.interfaces.Iaudio
 	zope.app.container.interfaces.IObjectMovedEvent"
         handler="cenditel.transcodedeamon.eventmoved.type_custom_moved"
         />
 
 
-<subscriber
-  zcml:condition="installed zope.lifecycleevent"
-  for="cenditel.audio.interfaces.Iaudio
-       zope.lifecycleevent.IObjectCopiedEvent"
-  handler="cenditel.transcodedeamon.event_custom_copy.Custom_CopyObjet"
-  />
-
-
-<subscriber
+    <subscriber
+        zcml:condition="installed zope.lifecycleevent"
         for="cenditel.audio.interfaces.Iaudio
-	Products.Archetypes.interfaces.IObjectEditedEvent"
+        zope.lifecycleevent.IObjectCopiedEvent"
+    handler="cenditel.transcodedeamon.event_custom_copy.Custom_CopyObjet"
+        />
+
+
+    <subscriber
+        for="cenditel.audio.interfaces.Iaudio
+        Products.Archetypes.interfaces.IObjectEditedEvent"
         handler="cenditel.transcodedeamon.eventedited.ModifiedElement"
         />
 

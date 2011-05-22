@@ -15,6 +15,9 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from Acquisition import interfaces
 #Products Imports
+from zope.app.component.hooks import getSite
+from iw.fss.config import ZCONFIG
+#################################
 from cenditel.audio import audioMessageFactory as _
 from cenditel.transcodedeamon.convert import MFN as MFNI
 from cenditel.transcodedeamon.convert import newtrans_init_
@@ -78,27 +81,28 @@ class audioView(BrowserView):
 	AUDIO_PARAMETRES_TRANSCODE = settings.ffmpeg_parameters_audio_line
 	audio_content_types=settings.audio_valid_content_types
 	video_content_types=settings.video_valid_content_types
-	self.STORAGE = self.RemoveSlash(settings.mount_point_fss)
+	portal = getSite()
+	self.STORAGE=ZCONFIG.storagePathForSite(portal)
 	self.MyTitle = self.context.Title()
         idaudio=self.context.getId()
 	self.MyTitleWhitOutSpace = MFNI.DeleteSpaceinNameOfFolderFile(MFNI.TitleDeleteSpace(self.MyTitle))
-	url = self.context.absolute_url()
-	self.PathOfFile = MFNI.ReturnPathOfFile(url)
+	#import pdb; pdb.set_trace()
+	self.PathOfFile = self.context._getURL()
 	virtualobject=self.context.getAudio()
 	self.filenamesaved=virtualobject.filename
 	self.extension=MTDI.CheckExtension(self.filenamesaved)
 	if self.extension=="ogg" or self.extension=="OGG":
-	    self.folderfileOGG=self.PathOfFile+'/' + quote(self.filenamesaved)
-	    self.prefiletranscoded=self.STORAGE+self.PathOfFile+'/'+self.filenamesaved
+	    self.folderfileOGG=path.join(self.PathOfFile,quote(self.filenamesaved))
+	    self.prefiletranscoded=path.join(self.STORAGE,self.PathOfFile,self.filenamesaved)
 	    if path.isfile(self.prefiletranscoded)==True:
 		self.StatusOfFile=ServiceList.available(idaudio,self.prefiletranscoded)
 		if self.StatusOfFile == False:
 		    ServiceList.AddReadyElement(idaudio,self.prefiletranscoded)
-		    self.StatusOfFile==True
+		    self.StatusOfFile=True
 		    ServiceList.SaveInZODB()
-		    self.AbsoluteServerPath = self.SERVER + self.folderfileOGG
+		    self.AbsoluteServerPath = path.join(self.SERVER,self.folderfileOGG)
 		else:
-		    self.AbsoluteServerPath = self.SERVER + self.folderfileOGG
+		    self.AbsoluteServerPath = path.join(self.SERVER,self.folderfileOGG)
 	    else:
 		print _("File not found "+self.prefiletranscoded)
 		self.Error=True
@@ -112,9 +116,9 @@ class audioView(BrowserView):
 			   AUDIO_PARAMETRES_TRANSCODE,
 			   audio_content_types,
 			   video_content_types)
-	    self.folderfileOGG=MTDI.newname(self.PathOfFile+'/' + self.filenamesaved)
-	    self.AbsoluteServerPath = self.SERVER + MTDI.nginxpath(self.folderfileOGG)
-	    self.newfiletranscoded=MTDI.nginxpath(self.STORAGE+self.folderfileOGG)
+	    self.folderfileOGG=MTDI.newname(path.join(self.PathOfFile,self.filenamesaved))
+	    self.AbsoluteServerPath = path.join(self.SERVER,MTDI.nginxpath(self.folderfileOGG))
+	    self.newfiletranscoded=MTDI.nginxpath(path.join(self.STORAGE,self.folderfileOGG))
 	    self.StatusOfFile = ServiceList.available(idaudio,self.newfiletranscoded)
 	    if self.StatusOfFile == True:
 		self.newfilename=MTDI.newname(self.filenamesaved)
@@ -144,7 +148,7 @@ class audioView(BrowserView):
     def GETFileSize(self):
 	if self.extension=='ogg':
 	    try:
-		self.filesize = MFNI.ReturnFileSizeOfFileInHardDrive(self.STORAGE+self.folderfileOGG)
+		self.filesize = MFNI.ReturnFileSizeOfFileInHardDrive(path.join(self.STORAGE,self.folderfileOGG))
 		thefilesize = self.filesize
 		return thefilesize
 	    except OSError:

@@ -39,8 +39,8 @@ msgid "Firefox"
 msgstr "Mozilla Firefox"
 
 #: ../profiles/default/types/audio.xml
-msgid "It's audio Streming using HTML5"
-msgstr "Es un archivo de audio transmitido con Streming y HTML5"
+msgid "It's audio Streaming using HTML5"
+msgstr "Es un archivo de audio transmitido con HTML5"
 
 #: ../content/audio.py:30
 msgid "The Audio file to be uploaded"

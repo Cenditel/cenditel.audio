@@ -36,10 +36,9 @@ tests_require = ['zope.testing']
 
 setup(name='cenditel.audio',
       version=version,
-      description="This package provide a aditional content type that provide audio streaming using HTML5",
+      description="This package provide a additional content type that provide audio streaming using HTML5",
       long_description=long_description,
-      # Get more strings from
-      # http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from https://pypi.org/classifiers/
       classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Plone',
@@ -58,7 +57,7 @@ setup(name='cenditel.audio',
       author_email='elalcon89@gmail.com',
       maintainer='Leonardo J. Caballero G.',
       maintainer_email='leonardocaballero@gmail.com',
-      url='http://svn.plone.org/svn/collective/cenditel.audio',
+      url='https://github.com/cenditel/cenditel.audio',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['cenditel', ],

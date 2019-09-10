@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="cenditel.audio">
 
   <property name="title" i18n:translate="">Audio file</property>
-  <property name="description" i18n:translate="">It's audio Streming using HTML5</property>
+  <property name="description" i18n:translate="">It's audio Streaming using HTML5</property>
   <property name="content_meta_type">audio</property>
   <property name="content_icon">++resource++cenditel.audio.images/audio.png</property>
   <property name="product">cenditel.audio</property>

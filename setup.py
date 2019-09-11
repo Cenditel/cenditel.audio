@@ -19,10 +19,10 @@ long_description = (
     + '\n' +
     read('CHANGES.txt')
     + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
+    'Testing Documentation\n'
+    '*********************\n'
     + '\n' +
-    read('cenditel', 'audio', 'README.txt')
+    read('cenditel', 'audio', 'TESTING.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
